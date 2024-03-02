@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "start": "npm run server && serve dist -s -n -L -p $PORT",
-    "dev": "npm run server && vite",
-    "build": "npm run server && vite build",
-    "serve": "npm run server && vite preview",
-    "server": "node server/server.js"
+    "start": "serve dist -s -n -L -p $PORT",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "server": "node ../crosscountryconnections-be-express/server.js"
   },
   "license": "MIT",
   "devDependencies": {
@@ -17,6 +17,7 @@
     "vite-plugin-solid": "^2.8.2"
   },
   "dependencies": {
-    "solid-js": "^1.8.11"
+    "solid-js": "^1.8.11",
+    "axios": "^1.6.7"
   }
 }

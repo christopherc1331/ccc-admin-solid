@@ -1,4 +1,5 @@
 import {Component, createEffect, createSignal, Show} from 'solid-js';
+import axios from "axios";
 
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -6,10 +7,18 @@ const API_URL = import.meta.env.VITE_API_URL;
 const App: Component = () => {
     const [articles, setArticles] = createSignal<[]>([]);
     createEffect(() => {
-        console.log("API_URL", API_URL)
+        axios.get(`${API_URL}/articles`)
+            .then((response) => {
+                console.log('response', response);
+                setArticles(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     });
 
     createEffect(() => {
+        console.log('articles', articles());
         if (articles().length > 0) {
             console.log('articles', articles());
         }
